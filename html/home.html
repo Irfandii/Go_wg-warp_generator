@@ -1,0 +1,57 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'>
+	<title>WARP Wireguard Config Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="/static/htmx.min.js"></script>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			height: 100vh;
+		}
+		main {
+			text-align: center;
+			width: 90%;
+			max-width: 700px;
+		}
+		textarea {
+			width: 100%;
+			height: 300px;
+			font-size: 18px;
+			box-sizing: border-box;
+		}
+		button {
+			width: 100%;
+			padding: 10px;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>WARP Config Generator</h1>
+		<span>Generate Wireguard configuration file for Cloudflare WARP</span>
+		<br>
+		<br>
+		<br>
+		<button hx-post="/get-conf" hx-target="#result" hx-swap="innerHTML">
+			Generate WARP Config
+		</button>
+		<br>
+		<br>
+		<div id="result"></div>
+	</main>
+
+	<script>
+		function copyConfig() {
+			const textarea = document.getElementById("config-text");
+			textarea.select();
+			navigator.clipboard.writeText(textarea.value);
+		}
+	</script>
+</body>
+</html>
+{{end}}
