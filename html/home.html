@@ -9,8 +9,10 @@
 	<style>
 		body {
 			display: flex;
-			justify-content: center;
-			height: 100vh;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: column;
+			height: 94vh;
 		}
 		main {
 			text-align: center;
@@ -28,6 +30,9 @@
 			padding: 10px;
 			font-size: 16px;
 		}
+		footer {
+			justify-self: flex-end;
+		}
 	</style>
 </head>
 <body>
@@ -44,7 +49,10 @@
 		<br>
 		<div id="result"></div>
 	</main>
-
+	<footer>
+		<span>Source: </span>
+		<a href=https://github.com/Irfandii/Go_wg-warp_generator>Github</a>
+	</footer>
 	<script>
 		function copyConfig() {
 			const textarea = document.getElementById("config-text");
@@ -52,6 +60,7 @@
 			navigator.clipboard.writeText(textarea.value);
 		}
 	</script>
+
 </body>
 </html>
 {{end}}
